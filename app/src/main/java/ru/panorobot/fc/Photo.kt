@@ -70,7 +70,7 @@ class Photo : AppCompatActivity() {
             getPhoto()
         else Toast.makeText(this, "Необходим доступ для показа фото", Toast.LENGTH_SHORT).show()
 
-
 //        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        //
     }
 }
