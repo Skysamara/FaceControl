@@ -31,10 +31,6 @@ class MainActivity : AppCompatActivity() {
         var runnable = object:Runnable{
             override fun run() {
                 cameraSource.stop()
-//                val alert = builder.create()
-//                alert.show()
-//                startActivity(Intent(this@MainActivity, Photo::class.java))
-
                 taskHandler.removeCallbacksAndMessages(null)
             }
         }
@@ -80,9 +76,11 @@ class MainActivity : AppCompatActivity() {
             override fun surfaceCreated(holder: SurfaceHolder?) {
                 print("4")
                 if (ContextCompat.checkSelfPermission(this@MainActivity, android.Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED)
-//                    && (ContextCompat.checkSelfPermission(this@MainActivity, android.Manifest.permission.WRITE_EXTERNAL_STORAGE)) == PackageManager.PERMISSION_GRANTED))
                     cameraSource.start(svBarcode.holder)
-                else ActivityCompat.requestPermissions(this@MainActivity, arrayOf(android.Manifest.permission.CAMERA), 321)
+                else {
+                    cameraSource.stop()
+                    ActivityCompat.requestPermissions(this@MainActivity, arrayOf(android.Manifest.permission.CAMERA), 123)
+                }
             }
 
         })
@@ -94,11 +92,6 @@ class MainActivity : AppCompatActivity() {
         if (requestCode == 123) {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)
                 cameraSource.start(svBarcode.holder)
-            else Toast.makeText(this, "scanner", Toast.LENGTH_SHORT).show()
-        }
-        if (requestCode == 321) {
-            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)
-//                cameraSource.start(svBarcode.holder)
             else Toast.makeText(this, "scanner", Toast.LENGTH_SHORT).show()
         }
     }

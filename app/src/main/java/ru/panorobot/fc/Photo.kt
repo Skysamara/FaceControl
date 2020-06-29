@@ -25,10 +25,6 @@ class Photo : AppCompatActivity() {
             startActivity(intent)
         }
 
-
-
-
-
         if (ContextCompat.checkSelfPermission(
                 this@Photo,
                 android.Manifest.permission.READ_EXTERNAL_STORAGE
@@ -39,7 +35,6 @@ class Photo : AppCompatActivity() {
                 arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE),
                 123
             )
-            // TODO: 26.06.2020 Добавить коллбэк
         } else {
             getPhoto()
         }
@@ -69,8 +64,5 @@ class Photo : AppCompatActivity() {
         if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)
             getPhoto()
         else Toast.makeText(this, "Необходим доступ для показа фото", Toast.LENGTH_SHORT).show()
-
-//        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        //
     }
 }
