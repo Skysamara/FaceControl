@@ -42,7 +42,7 @@ class Photo : AppCompatActivity() {
     private fun getPhoto() {
         val user = intent.getStringExtra("USER")
         val fileName = "/MeridianFC/" + user + ".jpg"
-        // Предполагается, что ФИО уникальное
+        // Предполагается, что ФИО уникальное.
         var f = File(Environment.getExternalStorageDirectory(), fileName)
 
         try {
