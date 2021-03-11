@@ -15,6 +15,7 @@ import com.google.android.gms.vision.CameraSource
 import com.google.android.gms.vision.Detector
 import com.google.android.gms.vision.barcode.Barcode
 import com.google.android.gms.vision.barcode.BarcodeDetector
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,7 +36,9 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        svBarcode = findViewById(R.id.sv_barcode)
+//        svBarcode = findViewById(R.id.sv_barcode)
+        svBarcode = sv_barcode
+
 
         detector = BarcodeDetector.Builder(this).setBarcodeFormats(Barcode.ALL_FORMATS).build()
         detector.setProcessor(object : Detector.Processor<Barcode> {

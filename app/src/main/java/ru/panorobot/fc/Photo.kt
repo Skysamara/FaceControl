@@ -32,8 +32,7 @@ class Photo : AppCompatActivity() {
         ) {
             ActivityCompat.requestPermissions(
                 this@Photo,
-                arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE),
-                123
+                arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE),123
             )
         } else {
             getPhoto()
@@ -43,6 +42,7 @@ class Photo : AppCompatActivity() {
     private fun getPhoto() {
         val user = intent.getStringExtra("USER")
         val fileName = "/MeridianFC/" + user + ".jpg"
+        // Предполагается, что ФИО уникальное
         var f = File(Environment.getExternalStorageDirectory(), fileName)
 
         try {
